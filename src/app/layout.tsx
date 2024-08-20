@@ -1,38 +1,23 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Link from 'next/link'
-import "./globals.css";
+"use client"
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import { Header } from 'app/components/Header'
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Future World",
-  description: "Future World",
-};
+const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
+  console.log('Hola mundo layout')
   return (
     <html lang="en">
+      <Header />
       <body className={inter.className}>
-      <header>
-          <nav>
-          <ul>
-              <Link href="/">
-                <li>Home</li>
-              </Link>
-              <Link href="/store">
-                <li>Store</li>
-              </Link>
-            </ul>
-          </nav>
-        </header>
         {children}
-
       </body>
     </html>
-  );
+  )
 }
